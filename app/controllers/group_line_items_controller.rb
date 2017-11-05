@@ -38,7 +38,7 @@ class GroupLineItemsController < ApplicationController
     @group_line_item = @group_cart.add_product(product.id, current_user.id)
     # устанавливаем юзера для товарной позиции
     @group_line_item.user_id = current_user.id
-    update_cart
+    update_group_cart
     # сохраняем запись
     if @group_line_item.save
       respond_to do |format|

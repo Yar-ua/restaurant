@@ -41,7 +41,15 @@ module CurrentCart
   def update_cart
     ActionCable.server.broadcast("LineChannel", {
       title: 'Update Cart',
-      body: 'Update Cart body'
+      body: '#{ j(render partial: "layouts/header_cart") }'
+      })
+  end
+
+
+  def update_group_cart
+    ActionCable.server.broadcast("LineChannel", {
+      title: 'Update Cart',
+      body: '#{ j(render partial: "layouts/header_group_cart") }'
       })
   end
   
