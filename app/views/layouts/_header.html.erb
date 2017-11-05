@@ -21,24 +21,17 @@
     
     <ul class="nav justify-content-end">
 
-      <% if user_login %>
+      <% if user_login and @cart %>
 
-        <li class="nav-item">
-          <%= link_to 'Моя корзина', (cart_path(id: @cart.id) if @cart), class: 'btn btn-success btn-sm' %>
+        <li id="cart1" class="nav-item">
+          <%=render partial: "layouts/header_cart"%>
         </li>
       <% end %>
 
       <% if @group_cart %>
-      <ul>
-        <li class="nav-item">
-          <%= link_to '| Корзина группы ' + @group_cart.group.name+ ' |', 
-          group_cart_path(group_id: @group.id, id: @group_cart.id), 
-          class: 'btn btn-success btn-sm' %>
+        <li id="cart1" class="nav-item">
+          <%=render partial: "layouts/header_group_cart"%>
         </li>
-        <li id="cart_info">
-          товаров <%= @quantity %> на сумму <%= my_number_to_currency(@price) %>
-        </li>
-      </ul>
       <% end %>
 
       <% if user_admin %>

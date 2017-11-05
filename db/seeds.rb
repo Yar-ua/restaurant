@@ -24,8 +24,9 @@ ProductType.find_or_create_by!(title: 'Напитки')
   Product.find_or_create_by!(title: 'Кофе', description: 'заварной', price: 10, product_type_id: 4)
 
 
-User.find_or_create_by! email: 'admin@gmail.com' do
+User.find_or_create_by! email: 'admin@gmail.com' do |user|
   user.name = 'admin'
+  user.email = 'admin@gmail.com'
   user.password = 'password'
 end
 

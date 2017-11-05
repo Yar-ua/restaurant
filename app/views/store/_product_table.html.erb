@@ -7,7 +7,7 @@
   <!-- кнопки для заказа доступны, если юзер выполнил вход и не является админом -->
   <% if user_login %>
     <th>
-      <%= button_to 'В корзину', line_items_path(product_id: product_table.id) %>
+      <%= button_to 'В корзину', line_items_path(product_id: product_table.id), remote: true %>
     </th>
   <% end %>
   

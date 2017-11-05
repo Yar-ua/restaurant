@@ -7,6 +7,7 @@ class GroupCartsController < ApplicationController
   # далее устанавливаем групповую корзину
   before_action :set_group_cart #, except: [:destroy]
   before_action :set_quantity_and_price
+  after_action :update_cart, only: [:create, :edit]
 
   # выдаем исключение при запросе некорректной корзины
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
