@@ -1,4 +1,5 @@
 class StoreController < ApplicationController
+  # установить корзину и все группы
   include CurrentCart
   before_action :set_cart
 
@@ -18,6 +19,7 @@ class StoreController < ApplicationController
 
   private
 
+    # установить все группы
     def set_all_groups
       @all_groups = Group.all.order('name ASC')
     end

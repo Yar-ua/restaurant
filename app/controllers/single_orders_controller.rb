@@ -1,4 +1,6 @@
 class SingleOrdersController < ApplicationController
+
+  # создание одиночного заказа
   def index
   	@single_orders = Order.all.order('created_at ASC')
   	set_line_items
@@ -8,6 +10,7 @@ class SingleOrdersController < ApplicationController
     end
   end
 
+  # просмотр одиночного заказа
   def show
   	@single_order = Order.find(params[:id])
   	@line_items = LineItem.where(order_id: @single_order.id)
@@ -16,8 +19,10 @@ class SingleOrdersController < ApplicationController
   def destroy
   end
 
+
   private
 
+  # устанавливаем записи соединительной таблицы
   def set_line_items
     @mass = []
   	@single_orders.each do |order|
