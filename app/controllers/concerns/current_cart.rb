@@ -38,6 +38,13 @@ module CurrentCart
   end
 
 
+  def update_cart
+    ActionCable.server.broadcast("LineChannel", {
+      title: 'Update Cart',
+      body: 'Update Cart body'
+      })
+  
+
   def set_quantity_and_price
     @group_line_items = GroupLineItem.where(group_cart_id: @group_cart.id)
     @quantity = 0
@@ -46,6 +53,7 @@ module CurrentCart
       @quantity += item.quantity
       @price += (item.quantity * item.product.price)
     end
+
   end
  
 end

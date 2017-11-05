@@ -1,10 +1,11 @@
 class LineChannel < ApplicationCable::Channel
+ 
   def subscribed
-    # stream_from "some_channel"
-    def subscribed
-      stream_from "LineChannel"
-    end
+    stream_from "LineChannel"
+  end
 
+  def receive(data)
+    ActionCable.server.broadcast("LineChannel", data)
   end
 
   def unsubscribed

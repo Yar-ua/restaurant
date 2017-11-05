@@ -1,8 +1,9 @@
 class CartsController < ApplicationController
+  include CurrentCart
   before_action :set_cart, only: [:show, :edit, :destroy]
   # выдаем исключение если кто то пытается зайти в несуществующую корзину в строке браузера
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
- 
+  after_action :update_cart, only: [:create, :edit]
   # устанавливаем все корзины
   def index
     @carts = Cart.all
@@ -60,4 +61,5 @@ class CartsController < ApplicationController
       logger.error "Попытка доступа к несуществующей корзине заказа #{params[:id]}"
       redirect_to root_path, alert: 'Некорректно указано меню предзаказа'
     end
+    
 end

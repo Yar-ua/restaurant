@@ -23,8 +23,8 @@
 
       <% if user_login %>
 
-        <li class="nav-item">
-          <%= link_to 'Моя корзина', (cart_path(id: @cart.id) if @cart), class: 'btn btn-success btn-sm' %>
+        <li id="cart1" class="nav-item">
+          <%=render partial: "layouts/header_cart"%>
         </li>
       <% end %>
 
