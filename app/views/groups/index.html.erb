@@ -14,6 +14,7 @@
 
   <tbody>
     <% @member.each do |member| %>
+
       <tr>
         <td><%= member.group.name %></td>
         <td>
@@ -21,17 +22,21 @@
             <%= item.user.name + '  ' %>
           <% end %>
         </td>
+
         <td>
           <% if member.group.group_orders %>
             <% member.group.group_orders.each do |order| %>
               <%= link_to 'Просмотр заказа ID: ' + order.id.to_s, group_order_path(group_id: member.group.id, id: order.id ) %><br/>
             <% end %>
           <% else %>
-            <p>у этой группы нет оформленных заказов</p>
+            у этой группы нет оформленных заказов
           <% end %>
         </td>
+
       </tr>
+
     <% end %>
+    
   </tbody>
 </table>
 
