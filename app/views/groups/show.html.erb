@@ -35,14 +35,14 @@
 <!-- если вы уже состоите в группе, метод см. в хелпере -->
 <% elsif current_user_already_in_this_group %>
   <p>Вы состоите в этой группе</p>
-  <%= link_to 'Заказ группы', group_cart_path(group_id: @group.id, id: @group_cart.id)  %> |
+  <%= link_to 'Корзина группового заказа группы', group_cart_path(group_id: @group.id, id: @group_cart.id)  %> |
 <% elsif current_user.id != @group.user_id %> 
   <%= button_to 'Хочу вступить в группу', 
   		joiners_path(group_id: @group.id, user_id: current_user.id), 
   		class: 'btn btn-warning btn-sm' %> |
 <% end %>
 
-<%= link_to 'Меню общего заказа', group_store_index_path(group_id: @group.id) %> |
+<%= link_to 'Наше меню', group_store_index_path(group_id: @group.id) %> |
 
 <%= link_to 'Назад', root_path %> |
 
