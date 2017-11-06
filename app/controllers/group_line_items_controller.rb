@@ -31,6 +31,7 @@ class GroupLineItemsController < ApplicationController
 
   # создаем товарную позицию
   def create
+    @group_line_items = GroupLineItem.where(group_cart_id: @group_cart.id)
     # ищем добавленный продукт
     product = Product.find(params[:product_id])
     # добавляем запись продукта и товарной позиции в корзине
@@ -41,7 +42,7 @@ class GroupLineItemsController < ApplicationController
     # сохраняем запись
     if @group_line_item.save
       # обновляем даные заголовка корзины и посылаем их через вебсокет
-      update_group_cart(@group_line_item)
+      update_group_cart(@group_line_items)
       respond_to do |format|
         format.html {redirect_to group_cart_path(id: @group_cart.id), notice: 'Блюдо добавлено в предзаказ (корзину)'}
         format.js

@@ -42,12 +42,11 @@ module CurrentCart
 
 
   # передаем данные о корзине через вебсокет
-  def update_group_cart(group_line_item)
+  def update_group_cart(group_line_items)
     ActionCable.server.broadcast("LineChannel", {
       title: 'Update Cart',
       body: set_websocket_group_cart, # см. метод ниже
-      line_id: group_line_item.id.to_s,
-      table_line: set_websocket_table_line(group_line_item)  # см. метод ниже
+      table_line: set_websocket_table(group_line_items)  # см. метод ниже
       })
   end
   
@@ -59,12 +58,17 @@ module CurrentCart
   end
 
 
-  def set_websocket_table_line(item)
-    return ('<td>' + item.product.title.to_s + '</td>' +
-    '<td>' + item.product.description.to_s + '</td>' +
-    '<td> заказал клиент ' + item.user.name.to_s + '</td>' +
-    '<td>' + item.quantity.to_s + ' шт</td>' +
-    '<td>' + item.total_price.to_s + ' грн</td>' )
+  def set_websocket_table(group_line_items)
+    response = ''
+    @group_line_items.each do |group_line_item|
+      response += ('<tr>
+        <td>' + group_line_item.product.title.to_s + '</td>
+        <td>' + group_line_item.product.description.to_s + '</td>
+        <td>заказал клиент ' + group_line_item.user.name.to_s + '</td>
+        <td>' + group_line_item.quantity.to_s + ' шт</td>
+        <td>' + group_line_item.total_price.to_s + ' грн</td>')
+    end
+    return response.to_s
   end
 
   # получаем строку для передачи через вебсокет
