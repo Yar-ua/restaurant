@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :name, presence: { message: 'Имя не может быть пустым' }
   
+  # описываем взаимосвязи
   has_one :cart
   has_many :groups, dependent: :destroy
   has_many :joiners, dependent: :destroy

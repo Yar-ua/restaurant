@@ -10,11 +10,14 @@ class Order < ApplicationRecord
   validates :notice, 
   			length: { maximum: 255, message: 'Комментари к заказу не должны быть длиннее 255 символов' }
 
+  
+  # метод установки аттрибутов заказа
   def set_order_attr(user)
   	self.name = user.name
   	self.email = user.email
   end
 
+  # метод установки стоимости заказа
   def set_price(cart)
     item = LineItem.where(cart_id: cart.id)
     total = 0

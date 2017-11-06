@@ -1,4 +1,5 @@
 class LineItem < ApplicationRecord
+  # описываем взаимосвязи
   belongs_to :product
   belongs_to :cart
   #belongs_to :order
@@ -13,6 +14,8 @@ class LineItem < ApplicationRecord
   validates :quantity, numericality: { greater_than: 0.1, message: 'Значение стоимости должно быть целым числом, и больше ноля' }
   validates :quantity, numericality:  {only_integer: true}
 
+
+  # формирование заказов по заказчикам в формате csv
   def self.to_csv(options = {})
     desired_columns = ["order", "user", "product", "quantity"]
     CSV.generate(options) do |csv|

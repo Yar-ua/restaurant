@@ -1,4 +1,5 @@
 class GroupLineItem < ApplicationRecord
+  # описываем взяимосвязи
   belongs_to :product
   belongs_to :group_cart
   belongs_to :user
@@ -9,6 +10,7 @@ class GroupLineItem < ApplicationRecord
   end
 
     
+  # метод получения заказов в формате csv
   def self.to_csv(options = {})
     desired_columns = ["group_order_id", "user_id", "user_name", "product", "quantity"]
     CSV.generate(options) do |csv|
