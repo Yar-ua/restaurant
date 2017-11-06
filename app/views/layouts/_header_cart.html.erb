@@ -1,5 +1,9 @@
 <!-- партиал для ссылки на одиночную корзину -->
-<%= link_to((cart_path(id: @cart.id) if @cart), class: 'btn btn-success btn-sm') do %>
+<li class="nav-item">
+  <%= link_to cart_path(id: @cart.id), class: 'btn btn-success btn-sm', id: 'cart' do %>
 	Моя корзина
-	<%= my_number_to_currency(@cart.total_price) %> (<%=@cart.line_items.count%>)
-<% end %> 
+  	<%= my_number_to_currency(@cart.total_price) %> (<%=@cart.line_items.count%>)
+  <% end %> 
+</li>
+
+
