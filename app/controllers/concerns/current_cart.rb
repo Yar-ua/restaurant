@@ -51,7 +51,7 @@ module CurrentCart
     set_quantity_and_price
     ActionCable.server.broadcast("LineChannel", {
       title: 'Update Cart',
-      body: '#{ j(render partial: "layouts/header_group_cart") }'
+      body: set_websocket_group_cart
       })
   end
   
@@ -64,6 +64,11 @@ module CurrentCart
       @quantity += item.quantity
       @price += (item.quantity * item.product.price)
     end
+  end
+
+  def set_websocket_group_cart
+    return ('Моя групповая корзина ' + @group_cart.total_price.to_s +
+       ' грн (' + @group_cart.group_line_items.count.to_s + ')').to_s
   end
 
 end
