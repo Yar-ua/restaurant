@@ -1,3 +1,4 @@
+<!-- вьюха детализации группового заказа -->
 <h2>Детализация группового</h2>
 
 ID заказа: <%= @group_order.id %><br/>
@@ -9,6 +10,7 @@ ID заказа: <%= @group_order.id %><br/>
 <%= link_to 'Назад', group_orders_admin_index_path, class: "btn btn-primary btn-sm", style: "color: white" %><br/>
 ----------------------------------<br/>
 
+<!-- в зависимости от запрошенного параметра рендерим разные партиалы с разной детализацией: по юзерам или по заказанным товарам -->
 <% if params[:how_to_view] == 'by_user' %>
   <%= render 'group_orders_admin/show_by_users' %>
 <% elsif params[:how_to_view] == 'by_dish' %>

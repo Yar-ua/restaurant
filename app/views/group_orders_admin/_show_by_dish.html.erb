@@ -1,13 +1,13 @@
+<!-- партиал детализации по заказанным блюдам -->
 <h3>Детализация по заказанным блюдам</h3>
 
 <div id="group-orders-table">
   <table class="table table-border table-hover table-striped">
-
+    <!-- регдерим коллекцию заказанных блюд -->
     <%= render partial: 'group_orders_admin/order_by_dish', collection: @group_dishes, as: 'dish' %>
   <tr>
     <th colspan="3"><h4>Итого:</h4></th>
     <th><h4><%= my_number_to_currency(@group_order.price) %></h4></th>
   </tr>
-
   </table>
 </div>

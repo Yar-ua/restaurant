@@ -1,8 +1,9 @@
+<!-- партиал детализации по заказчикам -->
 <h3>Детализация по заказчикам</h3>
 
 <div id="group-orders-table">
   <table class="table table-border table-hover table-striped">
-
+    <!-- рендерим партиалы с коллекцией линий заказа по юзерам -->
     <%= render partial: 'group_orders_admin/order_by_users', collection: @pull_users, as: 'user' %>
   <tr>
     <th colspan="3"><h4>Итого</h4></th>

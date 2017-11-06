@@ -1,4 +1,5 @@
-<h1>Наше меню для группового заказа</h1> - для юзеров
+<!-- страница меню при групповом заказе -->
+<h1>Наше меню для группового заказа</h1>
 
 <br/>
 
@@ -11,7 +12,7 @@
 <hr/>
 
 <%= link_to 'Все меню |', group_store_index_path %>
-
+<!-- партиал меню типов продуктов -->
 <%= render partial: 'group_store/group_store_product_type', collection: @product_types, as: 'product_type' %>
 
 <hr/>

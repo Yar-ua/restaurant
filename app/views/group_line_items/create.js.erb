@@ -1,3 +1,4 @@
+/* скрипт для обновления кнопки корзины */
 $('#group_cart').html('Моя групповая корзина ' + 
 	<%= my_number_to_currency(@group_cart.total_price) + ' (' + 
 	<%= @group_cart.group_line_items.count %> + ')');

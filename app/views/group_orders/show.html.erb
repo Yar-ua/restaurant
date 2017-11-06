@@ -1,3 +1,4 @@
+<!-- просмотр группового заказа -->
 <h2>Детализация группового</h2>
 
 ID заказа: <%= @group_order.id %><br/>
@@ -12,6 +13,7 @@ ID заказа: <%= @group_order.id %><br/>
     id: @group_order.id, how_to_view: 'by_user'), class: "btn btn-primary btn-sm", style: "color: white" %><br/>
 ----------------------------------<br/>
 
+<!-- в зависимости от запрошенного параметра рендерим разные партиалы с детализацией по заказам по юзеру или по товару -->
 <% if params[:how_to_view] == 'by_user' %>
   <%= render 'group_orders_admin/show_by_users' %>
 <% else %>

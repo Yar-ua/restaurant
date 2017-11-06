@@ -1,3 +1,4 @@
+<!-- просмотр заказов групп по группам -->
 <p id="notice"><%= notice %></p>
 
 <h1>Просмотр оформленных заказов групп</h1>
@@ -20,8 +21,10 @@
             <%= member.user.name + '  ' %>
           <% end %>
         </td>
-        <td><%= link_to 'Подробнее', group_order_path(group_id: group.id, 
-                id: GroupOrder.find(group.id).id ) %></td>
+        <td>
+          <%= link_to 'Просмотр группы', group_order_path(group_id: group.id, 
+                id: GroupOrder.find(group.id).id ) %>
+        </td>
       </tr>
     <% end %>
   </tbody>

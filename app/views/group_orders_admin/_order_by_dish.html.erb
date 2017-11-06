@@ -1,7 +1,8 @@
-  <tr>
-    <td><%= dish[:product].title %></td>
-    <td><%= dish[:product].description %></td>
-    <td><%= my_number_to_currency(dish[:product].price) %> x <b><%= dish[:quantity] %> шт</b></td>
-    <td><%= my_number_to_currency(dish[:product].price * dish[:quantity]) %></td>
-  </tr>
+<!-- рендерим линии коллекции по заказанным блюд -->
+<tr>
+  <td><%= dish[:product].title %></td>
+  <td><%= dish[:product].description %></td>
+  <td><%= my_number_to_currency(dish[:product].price) %> x <b><%= dish[:quantity] %> шт</b></td>
+  <td><%= my_number_to_currency(dish[:product].price * dish[:quantity]) %></td>
+</tr>
 

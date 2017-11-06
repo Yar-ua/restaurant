@@ -1,6 +1,9 @@
+<!-- партиал с коллекцией для детализации по юзерам -->
+
 <thead>
   <th colspan="4">Заказчик: <%= user.name %>, <%= user.email %></th>
 </thead>
+
 <% price = 0 %>
 <% user.group_line_items.where(group_order_id: @group_order.id).each do |item| %>
   <tr>
@@ -11,6 +14,7 @@
   </tr>
   <% price += (item.product.price * item.quantity) %>
 <% end %>
+
 <tr>
   <th colspan="3">Сумма с посетителя:</th>
   <th><%= my_number_to_currency(price) %></th>

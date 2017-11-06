@@ -9,7 +9,7 @@
   </head>
 
   <body>
-
+    <!-- рендерим header -->
   	<%= render 'layouts/header' %>
 
     <div class="container">
@@ -23,7 +23,7 @@
             <p class="alert alert-error alert-danger"><%= alert %></p>
           <% end %>
 
-          <!-- меню администратора -->
+          <!-- меню администратора если юзер админ-->
           <% if user_admin %>
             <%= render 'layouts/admin_menu' %>
           <% end %>
@@ -37,7 +37,7 @@
     <%= debug(params) if Rails.env.development? %> 
     <!-- моя зона отладки -->
     <%# if Rails.env.development? %> 
-      <%= @quantity.inspect %><br/>
+      <%#= @quantity.inspect %><br/>
       <%#= @a.inspect %><br/>
       <%#= @group_order.inspect %><br/>
       <%#= @my_group_order.inspect %><br/>

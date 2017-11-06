@@ -1,7 +1,7 @@
 class GroupOrder < ApplicationRecord
   # поределяем взаимосвязи
   has_many :group_line_items, dependent: :destroy
-  #has_one :group
+  # has_one :group
   # определяем массив видов оплаты
   PAYMENT_TYPES = ["наличными", "кредитной картой"]
 

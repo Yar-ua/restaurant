@@ -1,3 +1,4 @@
+<!-- партиал для рендеринга состава групповой корзины  -->
 <div id='table'>
   <tr class="group_cart_menu" id="group_line_item_<%= group_line_item.id %>">
     <td><%= group_line_item.product.title %></td>
@@ -7,6 +8,7 @@
     <td><%= group_line_item.total_price %> шт</td>
 
     <td class="item_price">
+      <!-- показывать элементы управления товарами если именно текущий юзер их добавлял в корзину -->
     	<%= my_number_to_currency(group_line_item.total_price) %> |
       <% if group_line_item.user == current_user %>
         <%= link_to fa_icon('pencil-square-o') + 'ред', edit_group_line_item_path(id: group_line_item.id) %> |

@@ -1,16 +1,17 @@
+<!-- партиал header'a -->
 <div class="navbar navbar-dark bg-dark navbar-static-top">
   <div class="container">
 
     <ul class="nav navbar-nav navbar-left">
       <% if user_admin %>
-
+        <!-- если юзер админ то показывать ссылки для админа -->
         <li class="nav-item">
           <%= link_to 'Restaurant "Developers Life"', product_types_path, class: 'navbar-brand', color: "#ff0033" %>
           <%= link_to 'admin panel mode', product_types_path, class: 'navbar-brand', id: 'navbar-admin' %>
         </li>
       
       <% else %>
-      
+        <!-- иначе просто название со ссылкой для юзеров -->
         <li class="nav-item">
           <%= link_to 'Restaurant "Developers Life"', store_index_path, class: 'navbar-brand', color: "#ff0033" %>
         </li>
@@ -20,20 +21,20 @@
  
     
     <ul class="nav justify-content-end">
-
+      
+      <!-- если юзер залогинени и корзина установлена -->
       <% if user_login and @cart %>
-
         <li id="cart1" class="nav-item">
           <%=render partial: "layouts/header_cart"%>
         </li>
       <% end %>
-
+      <!-- если групповая корзина установлена -->
       <% if @group_cart %>
         <li class="nav-item">
           <%=render partial: "layouts/header_group_cart"%>
         </li>
       <% end %>
-
+      <!-- если юзер админ -->
       <% if user_admin %>
         <li class="nav-item">
           Вы вошли как администратор  |
@@ -42,7 +43,7 @@
           <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, class: "btn btn-primary btn-sm active" %>
         </li>
 
-
+        <!-- если юзер залогинен показывать кнопки для просмотра заказов и кнопку Выйти -->
         <% elsif user_login %>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,7 +58,7 @@
           <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, class: "btn btn-primary btn-sm active" %>
         </li>
 
-
+      <!-- если вход не выполнен то показывать кнопки вход/выход -->
       <% else %>
         <div class="btn-group" role="group" aria-label="Basic example">
           <%= link_to 'Войти', new_user_session_path, class: "btn btn-primary btn-sm active" %> 

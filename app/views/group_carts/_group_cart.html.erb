@@ -2,6 +2,7 @@
 <br/>
 
 <table class="table table-bordered">
+  <!-- рендерим партиал с коллекцией позиций групповой корзины -->
   <%= render(group_cart.group_line_items) %>
   <tr class="total_line">
   	<td colspan="4"><b>Итого</b></td>
@@ -12,31 +13,13 @@
 
 
 <%= link_to 'Назад', :back %> | 
-<br/><br/>
+<br/>
+
 <%= button_to 'Очистить корзину заказа', group_cart_path(group_id: @group.id,
 			id: @group_cart.id), method: :delete, 
 	data: {confirm: 'Вы уверены что хотите очистить корзину заказа?'}, 
 	class: 'btn btn-danger btn-sm' %> |
+
 <%= button_to 'Оформить заказ', new_group_order_path, method: :get,
-	class: 'btn btn-success btn-sm' %> |
+	class: 'btn btn-success btn-sm' %> 
 
-
-<script>
-	/*
-  function show() {
-    $.ajax({ 
-      url: "group_line_items/group_line_item",
-      cache: false,
-      success: function(html){
-      	$('#table').html(html);
-      }
-    })
-  }
-
-
-  $(document).ready(function(){
-  	show();
-  	setInterval('show()', 5000);
-  });
-*/
-</script>

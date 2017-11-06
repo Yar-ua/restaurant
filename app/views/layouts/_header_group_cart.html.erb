@@ -1,10 +1,9 @@
+<!-- партиал ссылки на групповую корзину -->
 <li class="nav-item" id="group_cart">
   <%= link_to group_cart_path(group_id: @group.id, id: @group_cart.id), 
       class: 'btn btn-success btn-sm' do %>
     	Моя групповая корзина
-	
 	<%= my_number_to_currency(@group_cart.total_price) %> 
 	(<%=@group_cart.group_line_items.count%>)
-
   <% end %>
 </li>

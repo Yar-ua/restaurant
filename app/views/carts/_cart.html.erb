@@ -1,7 +1,9 @@
+<!-- партиа =л для показа корзины-->
 <h2>Меню вашего предварительного заказа</h2>
 <br/>
 
 <table class="table table-bordered">
+  <!-- в этом партиале рендерятся коллекция линий товаров корзины-->
   <%= render(cart.line_items) %>
   <tr class="total_line">
   	<td colspan="2"><b>Итого</b></td>
@@ -12,9 +14,11 @@
 
 
 <%= link_to 'Back', :back %> | 
-<br/><br/>
+<br/>
+
 <%= button_to 'Очистить корзину заказа', cart_path(@cart), method: :delete,
 	data: {confirm: 'Вы уверены что хотите очистить корзину заказа?'}, 
 	class: 'btn btn-danger btn-sm' %> |
+	
 <%= button_to 'Оформить заказ', new_order_path, method: :get,
-	class: 'btn btn-success btn-sm' %> |
+	class: 'btn btn-success btn-sm' %> 
