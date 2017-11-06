@@ -2,7 +2,7 @@ class LineItem < ApplicationRecord
   # описываем взаимосвязи
   belongs_to :product
   belongs_to :cart
-  #belongs_to :order
+  has_many :order
 
   # подсчет стоимости всех позиций
   def total_price

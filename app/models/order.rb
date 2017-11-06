@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   # определяем массив видов оплаты
   PAYMENT_TYPES = ["наличными", "кредитной картой"]
 
-  #has_many :line_items, dependent: :destroy
+  has_many :line_items, dependent: :destroy
 
   # определяем валидации
   validates :name, :email, presence: true
