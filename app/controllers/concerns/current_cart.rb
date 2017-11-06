@@ -33,39 +33,22 @@ module CurrentCart
     end
   end
 
+  # устанавливаем текущую группу
   def set_current_group
     @group = Group.find(params[:group_id])
   end
 
 
-  def update_cart
-    set_quantity_and_price
-    ActionCable.server.broadcast("LineChannel", {
-      title: 'Update Cart',
-      body: '#{ j(render partial: "layouts/header_cart") }'
-      })
-  end
-
-
+  # передаем данные о корзине через вебсокет
   def update_group_cart
     set_quantity_and_price
     ActionCable.server.broadcast("LineChannel", {
       title: 'Update Cart',
-      body: set_websocket_group_cart
+      body: set_websocket_group_cart # см. метод ниже
       })
   end
   
-
-  def set_quantity_and_price
-    @group_line_items = GroupLineItem.where(group_cart_id: @group_cart.id)
-    @quantity = 0
-    @price = 0
-    @group_line_items.each do |item|
-      @quantity += item.quantity
-      @price += (item.quantity * item.product.price)
-    end
-  end
-
+  # получаем строку для передачи через вебсокет
   def set_websocket_group_cart
     return ('Моя групповая корзина ' + @group_cart.total_price.to_s +
        ' грн (' + @group_cart.group_line_items.count.to_s + ')').to_s
