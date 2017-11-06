@@ -28,5 +28,6 @@ User.find_or_create_by! email: 'admin@gmail.com' do |user|
   user.name = 'admin'
   user.email = 'admin@gmail.com'
   user.password = 'password'
+  user.admin = true
 end
 

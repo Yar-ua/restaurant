@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   
+
   # mount ActionCable.server => '/cable'
 
   # просмотр админом оформленных заказов
   resources :single_orders, only: [:index, :show, :destroy]
   resources :group_orders_admin, only: [:index, :show, :destroy]
+  resources :user_group_orders, only: [:index, :show]
   #get '/group_orders_admin/:id' to: 'group_orders_admin#show'
 
 

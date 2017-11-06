@@ -22,8 +22,11 @@
           <% end %>
         </td>
         <td>
-          <%= link_to 'Просмотр группы', group_order_path(group_id: group.id, 
-                id: GroupOrder.find(group.id).id ) %>
+          <% if group.group_orders %>
+            <% group.group_orders.each do |order| %>
+              <%= link_to 'Просмотр заказа ID: ' + order.id.to_s, group_order_path(group_id: group.id, id: order.id ) %><br/>
+            <% end %>
+          <% end %>
         </td>
       </tr>
     <% end %>
