@@ -39,6 +39,7 @@ module CurrentCart
 
 
   def update_cart
+    set_quantity_and_price
     ActionCable.server.broadcast("LineChannel", {
       title: 'Update Cart',
       body: '#{ j(render partial: "layouts/header_cart") }'
@@ -47,6 +48,7 @@ module CurrentCart
 
 
   def update_group_cart
+    set_quantity_and_price
     ActionCable.server.broadcast("LineChannel", {
       title: 'Update Cart',
       body: '#{ j(render partial: "layouts/header_group_cart") }'
