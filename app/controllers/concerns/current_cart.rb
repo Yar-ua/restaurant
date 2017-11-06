@@ -42,17 +42,11 @@ module CurrentCart
 
 
   # передаем данные о корзине через вебсокет
-  def update_group_cart
+  def update_group_cart(group_line_item)
     ActionCable.server.broadcast("LineChannel", {
       title: 'Update Cart',
-      body: set_websocket_group_cart # см. метод ниже
-      })
-  end
-
-
-  def update_group_table(group_line_item)
-    ActionCable.server.broadcast("LineChannel", {
-      title: 'Update Group Table',
+      body: set_websocket_group_cart, # см. метод ниже
+      line_id: group_line_item.id.to_s,
       table_line: set_websocket_table_line(group_line_item)  # см. метод ниже
       })
   end

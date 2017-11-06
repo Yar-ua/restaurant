@@ -1,7 +1,7 @@
 <h2>Меню вашего предварительного группового заказа</h2>
 <br/>
 
-<table class="table table-bordered">
+<table class="table table-bordered" id="group_cart_table">
   <!-- рендерим партиал с коллекцией позиций групповой корзины -->
   <%= render(group_cart.group_line_items) %>
   <tr class="total_line">
