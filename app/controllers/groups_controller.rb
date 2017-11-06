@@ -9,8 +9,7 @@ class GroupsController < ApplicationController
 
   # просмотр всех групп
   def index
-    #@groups = Group.all
-    @groups = Group.joins(:members).where(user_id: current_user.id)
+    @member = Member.where(user_id: current_user.id)
   end
 
   # показ группы
