@@ -1,6 +1,6 @@
 class GroupCart < ApplicationRecord
   # описываем связи
-  belongs_to :group
+  has_one :group
   has_many :group_line_items, dependent: :destroy
 
   # метод добавления блюда в корзину

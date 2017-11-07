@@ -1,5 +1,5 @@
 <!-- форма для корректировки количества товара -->
-<%= form_with(model: group_line_item, local: true) do |form| %>
+<%= form_for group_line_item, url: group_line_item_path do |form| %>
   <% if group_line_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(group_line_item.errors.count, "error") %> prohibited this group_line_item from being saved:</h2>
@@ -18,6 +18,6 @@
   </div>
 
   <div class="actions">
-    <%= button_tag 'Сохранить' %>
+    <%= button_tag 'Сохранить', class: "btn btn-success btn-sm", group_id: @group.id %>
   </div>
 <% end %>

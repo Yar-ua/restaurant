@@ -2,8 +2,8 @@ class GroupLineItemsController < ApplicationController
   # подключаем модуль CurrentCart
   # устаанавливаем текущую группу и групповую корзину
   include CurrentCart
-  before_action :set_current_group, except: [:update] 
-  before_action :set_group_cart, except: [:update]
+  before_action :set_current_group #, except: [:update] 
+  before_action :set_group_cart #, except: [:update]
 
   # устанавливаем текущую оварную позицию групповой корзины
   before_action :set_group_line_item, only: [:show, :edit, :update, :destroy]
@@ -54,6 +54,8 @@ class GroupLineItemsController < ApplicationController
   # обновляем количество товаров в товарной позиции
   def update
     @group_line_item.update(group_line_item_quantity_params)
+    @group_line_items = GroupLineItem.where(group_cart_id: @group_cart.id)
+    update_group_cart(@group_line_items)
     redirect_to group_cart_path(group_id: @group_line_item.group_cart.group_id, 
             id: @group_line_item.id), notice: 'Количество обновлено'
   end
