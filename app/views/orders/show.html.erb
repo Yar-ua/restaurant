@@ -27,7 +27,7 @@
 
 Заказано:
 <br/>
-<%= render partial: 'orders/order', collection: @my_order, as: 'order' %>
+<%= render partial: 'single_orders/line_item', collection: @order.line_items, as: 'line_item' %>
 -------------<br/>
 Итого: <%= my_number_to_currency(@order.price) %><br/>
 
