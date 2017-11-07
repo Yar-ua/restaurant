@@ -6,5 +6,8 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  # for development
+  #  url: redis://localhost:6379/1  
+  # for production
+  url: <%= ENV["REDISCLOUD_URL"] %>
   channel_prefix: restaurant_production

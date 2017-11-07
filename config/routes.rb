@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
 
-  # mount ActionCable.server => '/cable'
+  mount ActionCable.server => '/cable'
 
   # просмотр админом оформленных заказов
   resources :single_orders, only: [:index, :show, :destroy]
