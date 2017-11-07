@@ -45,7 +45,7 @@ module CurrentCart
   def update_group_cart(group_line_items)
     ActionCable.server.broadcast("LineChannel", {
       title: 'Update Cart',
-      # body: set_websocket_group_cart, # см. метод ниже
+      body: set_websocket_group_cart, # см. метод ниже
       table_line: set_websocket_table(group_line_items)   # см. метод ниже
       })
   end
