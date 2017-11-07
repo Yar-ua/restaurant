@@ -34,7 +34,11 @@ class GroupCartsController < ApplicationController
   def destroy
     # очищаем все товарные позиции group_line_items
     @group_cart.group_line_items.destroy_all
-    redirect_to group_path(id: @group_cart.group_id), notice: 'Групповая корзина очищена'
+    update_group_cart(@group_cart.group_line_items)
+    respond_to do |format|
+      format.html {redirect_to group_path(id: @group_cart.group_id), notice: 'Групповая корзина очищена'}
+      format.js
+    end
   end
 
   private

@@ -19,7 +19,7 @@
 
 <%= button_to 'Очистить корзину заказа', group_cart_path(group_id: @group.id,
 			id: @group_cart.id), method: :delete, 
-	data: {confirm: 'Вы уверены что хотите очистить корзину заказа?'}, 
+	data: {confirm: 'Вы уверены что хотите очистить корзину заказа?'}, remote: true,
 	class: 'btn btn-danger btn-sm' %> |
 
 <%= button_to 'Оформить заказ', new_group_order_path, method: :get,

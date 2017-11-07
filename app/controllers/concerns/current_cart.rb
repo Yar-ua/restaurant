@@ -43,11 +43,20 @@ module CurrentCart
 
   # передаем данные о корзине через вебсокет
   def update_group_cart(group_line_items)
-    ActionCable.server.broadcast("LineChannel", {
-      title: 'Update Cart',
-      body: set_websocket_group_cart, # см. метод ниже
-      table_line: set_websocket_table(group_line_items)   # см. метод ниже
-      })
+    # если линии таблицы существуют, а не удалены
+    if group_line_items.exists?
+      ActionCable.server.broadcast("LineChannel", {
+        title: 'Update Cart',
+        body: set_websocket_group_cart, # см. метод ниже
+        table_line: set_websocket_table(group_line_items)   # см. метод ниже
+        })
+    else
+      ActionCable.server.broadcast("LineChannel", {
+        title: 'Empty Cart',
+        body: set_websocket_group_cart, # см. метод ниже
+        table_line: ''
+        })
+    end
   end
   
 
