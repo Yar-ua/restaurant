@@ -78,6 +78,10 @@ module CurrentCart
         <td>' + group_line_item.quantity.to_s + ' шт</td>
         <td>' + group_line_item.total_price.to_s + ' грн</td>' )
     end
+    response += '<tr class="total_line">
+        <td colspan="4"><b>Итого</b></td>
+        <td class="total_cell"><b>' + @group_cart.total_price.to_s + ' грн</b></td>
+      </tr>'
     return response.to_s
   end
 
