@@ -11,5 +11,5 @@ App.line = App.cable.subscriptions.create "LineChannel",
     $('#group_cart_table').html(data['table_line'])
     
     console.log "socket received cart: #{data['body']}"
-    console.log "socket received table: #{data['table_line']}"
+    console.log "socket received cart table: #{data['table_line']}"
 

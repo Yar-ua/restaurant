@@ -48,9 +48,9 @@ class MembersController < ApplicationController
   # DELETE /members/1
   # DELETE /members/1.json
   def destroy
-    #@member = Member.where(user_id: params[:user_id], group_id: params[:group_id])
-    #@member.destroy
-    #redirect_to root_path, notice: 'Вы удалились из группы'
+    @member = Member.where(user_id: params[:user_id], group_id: params[:group_id]).take
+    @member.destroy
+    redirect_to root_path, notice: 'Вы удалились из группы'
   end
 
   private
