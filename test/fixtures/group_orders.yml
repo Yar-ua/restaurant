@@ -2,12 +2,12 @@
 
 one:
   name: MyText
-  email: MyText
+  email: 1@gmail.com
   notice: MyText
   pay_type: MyString
 
 two:
   name: MyText
-  email: MyText
+  email: 2@gmail.com
   notice: MyText
   pay_type: MyString

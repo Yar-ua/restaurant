@@ -1,9 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  product: one
-  group_cart: one
+  product_id: 1
+  group_cart_id: 1
+  quantity: 10
+  group_order_id: nil
+  user_id: 1
 
 two:
-  product: two
-  group_cart: two
+  product_id: 1
+  group_cart_id: nil
+  quantity: 10
+  group_order_id: 1
+  user_id: 1
+
+three:
+  product_id: 1
+  group_cart_id: nil
+  quantity: 10
+  group_order_id: nil
+  user_id: nil

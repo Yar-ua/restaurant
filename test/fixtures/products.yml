@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
+  title: Meat
+  description: tasty meat
   price: 9.99
+  product_type_id: 1
 
 two:
-  title: MyString
-  description: MyText
+  title: Fruits
+  description: apples
   price: 9.99
+  product_type_id: 2
