@@ -1,4 +1,4 @@
-<h2>Меню вашего предварительного группового заказа</h2>
+<h2>Корзина вашего группового заказа</h2>
 <br/>
 
 <table class="table table-bordered" id="group_cart_table">
@@ -13,15 +13,16 @@
 
 </table>
 
-<%= link_to 'Управлять таблицей заказов', group_cart_path(group_id: @group.id, id: @group_cart.id),
- class: "btn btn-primary btn-sm", id: "control_button" %> | <%= link_to 'Назад', :back %> <br/>
-<br/>
-
-<%= button_to 'Очистить корзину заказа', group_cart_path(group_id: @group.id,
+<div id="container_cart_buttons">
+  <%= link_to 'Управлять таблицей заказов', group_cart_path(group_id: @group.id, id: @group_cart.id), class: "btn btn-primary btn-sm", id: "control_button" %> | 
+  <%= button_to 'Очистить корзину заказа', group_cart_path(group_id: @group.id,
 			id: @group_cart.id), method: :delete, 
-	data: {confirm: 'Вы уверены что хотите очистить корзину заказа?'}, remote: true,
-	class: 'btn btn-danger btn-sm' %> |
+	    data: {confirm: 'Вы уверены что хотите очистить корзину заказа?'}, remote: true,
+	    class: 'btn btn-danger btn-sm' %> 
 
-<%= button_to 'Оформить заказ', new_group_order_path, method: :get,
-	class: 'btn btn-success btn-sm' %> 
+  <%= button_to 'Оформить заказ', new_group_order_path, method: :get,
+	    class: 'btn btn-success btn-sm' %> 
 
+</div>
+
+<%= link_to 'Назад в меню для группы', group_store_index_path(group_id: @group.id) %> <br/>

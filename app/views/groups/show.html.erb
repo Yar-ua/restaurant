@@ -37,10 +37,9 @@
 <!-- если вы уже состоите в группе, метод см. в хелпере -->
 <% elsif current_user_already_in_this_group %>
   <p>Вы состоите в этой группе</p>
-  <%= link_to 'Корзина группового заказа', group_cart_path(group_id: @group.id, id: @group_cart.id)  %> |
-  <%= link_to 'Наше меню', group_store_index_path(group_id: @group.id) %> |
+  <%= link_to 'К выбору блюд', group_store_index_path(group_id: @group.id), class: "btn btn-primary" %> |
   <%= link_to 'Удалиться из группы', member_path(user_id: current_user.id, group_id: @group.id), 
-    method: :delete, data: {confirm: 'Действительно желаете удалиться?'}, style: "text: 'red'" %>
+    method: :delete, data: {confirm: 'Действительно желаете удалиться?'}, style: "color: red" %>
   
 <% elsif current_user.id != @group.user_id %> 
   <%= button_to 'Хочу вступить в группу', 
@@ -50,6 +49,6 @@
 <% end %>
 
 <br/>
-<%= link_to 'Назад', root_path %> |
+<%= link_to 'Выйти в одиночные заказы', root_path %> |
 
 
