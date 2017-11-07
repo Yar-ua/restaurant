@@ -23,17 +23,14 @@
     <ul class="nav justify-content-end">
       
       <!-- если юзер залогинени и корзина установлена -->
-      <% if user_login and @cart %>
-        <li class="nav-item">
-          <%=render partial: "layouts/header_cart"%>
-        </li>
-      <% end %>
+      <li class="nav-item">
+        <%=render partial: "layouts/header_cart"%>
+      </li>
       <!-- если групповая корзина установлена -->
-      <% if @group_cart %>
-        <li class="nav-item">
-          <%=render partial: "layouts/header_group_cart"%>
-        </li>
-      <% end %>
+      <li class="nav-item">
+        <%=render partial: "layouts/header_group_cart"%>
+      </li>
+
       <!-- если юзер админ -->
       <% if user_admin %>
         <li class="nav-item">
